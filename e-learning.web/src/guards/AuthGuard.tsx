@@ -12,6 +12,7 @@ import { setSession } from '../utils/jwt';
 import { dispatch as reduxDispatch } from '@/redux/store';
 import { clearAuthState } from '@/redux/slices/auth';
 import { clearBranding } from '@/redux/slices/tenantBranding';
+import { LOGIN_DOMAIN } from '@/config';
 // components
 import LoadingScreen from '../components/LoadingScreen';
 
@@ -88,7 +89,7 @@ export default function AuthGuard({ children }: Props) {
     const isClientRoute = window.location.pathname.startsWith('/client');
     const loginUrl = isClientRoute 
       ? `${window.location.origin}${PATH_AUTH.login}` // Ở lại subdomain hiện tại
-      : switchSubdomain('id', PATH_AUTH.login);       // Đẩy về trang ID cho quản lý
+      : `${LOGIN_DOMAIN}${PATH_AUTH.login}`;          // Đẩy về trang ID cho quản lý
     window.location.replace(loginUrl);
   }, [isInitialized, isAuthenticated, user]);
 
@@ -119,7 +120,7 @@ export default function AuthGuard({ children }: Props) {
       loginUrl = `${window.location.origin}${PATH_AUTH.login}`;
     } else {
       // Nếu là các cấp quản lý khác: Đẩy về subdomain 'id'
-      loginUrl = switchSubdomain('id', PATH_AUTH.login);
+      loginUrl = `${LOGIN_DOMAIN}${PATH_AUTH.login}`;
     }
 
     // On plain 'localhost', subdomains cannot share cookies.
