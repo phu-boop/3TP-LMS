@@ -109,6 +109,11 @@ export default function AccountPopover() {
         targetUrl = `${targetUrl}${connector}accessToken=${newAccessToken}${newRefreshToken ? `&refreshToken=${newRefreshToken}` : ''}`;
       }
 
+      // Bypass subdomain redirect on Vercel free tier (since it doesn't support wildcard subdomains)
+      if (window.location.hostname.includes('vercel.app')) {
+        targetUrl = dashboardPath;
+      }
+
       window.location.href = targetUrl;
     } catch (err: any) {
       console.error(err);

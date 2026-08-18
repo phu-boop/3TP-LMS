@@ -90,6 +90,11 @@ export function buildPortalUrl({
     return `${localProtocol}//${localHost}${portSegment}${safePath}`;
   }
 
+  // Bypass subdomain redirect on Vercel free tier (doesn't support wildcard subdomains)
+  if (currentHostname.includes('vercel.app')) {
+    return `${protocol}//${currentHost}${safePath}`;
+  }
+
   if (!normalizedTargetHost || normalizedTargetHost === currentHost) {
     return `${protocol}//${currentHost}${safePath}`;
   }
@@ -113,6 +118,11 @@ export function switchSubdomain(newSubdomain: string, path: string = ''): string
     const localRoot = configuredLocalRootHost();
     const targetHost = newSubdomain ? `${newSubdomain}.${localRoot}` : localRoot;
     return `http://${targetHost}${portSegment}${safePath}`;
+  }
+
+  // Bypass subdomain redirect on Vercel free tier
+  if (hostname.includes('vercel.app')) {
+    return `${protocol}//${hostname}${portSegment}${safePath}`;
   }
 
   // 2. Handle Production with ROOT_DOMAIN
