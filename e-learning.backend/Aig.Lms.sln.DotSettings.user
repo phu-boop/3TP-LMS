@@ -1,0 +1,21 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4911e2b4_002D83fc_002D4189_002Dab17_002D59885c538772/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EmailOutboxMessageTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::4824FE71-1147-4445-9489-727F10937356::net10.0::Aig.Lms.UnitTests.Emails.EmailOutboxMessageTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5b04c55b_002D9cf1_002D48df_002D9264_002D35b45669e7eb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SampleEmailFeatureCommandHandlerTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::4824FE71-1147-4445-9489-727F10937356::net10.0::Aig.Lms.UnitTests.Emails.SampleEmailFeatureCommandHandlerTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=60b080f2_002D7ac6_002D4385_002Dacae_002D63620c0375aa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EmailOutboxServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::4824FE71-1147-4445-9489-727F10937356::net10.0::Aig.Lms.UnitTests.Emails.EmailOutboxServiceTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b1dc6136_002Da8ef_002D4fed_002Dab58_002Db4867dd3f78b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SampleEmailFeatureCommandHandlerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::4824FE71-1147-4445-9489-727F10937356::net10.0::Aig.Lms.UnitTests.Emails.SampleEmailFeatureCommandHandlerTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

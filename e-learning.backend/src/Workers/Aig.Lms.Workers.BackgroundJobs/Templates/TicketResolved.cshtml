@@ -1,0 +1,76 @@
+@model dynamic
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Thông báo giải quyết yêu cầu hỗ trợ</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 20px;
+        color: #333333;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+      .email-header {
+        background-color: #0066cc;
+        color: #ffffff;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .email-body {
+        padding: 24px;
+      }
+      .ticket-box {
+        background-color: #f8f9fa;
+        border-left: 4px solid #0066cc;
+        padding: 16px;
+        margin: 16px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .ticket-box p {
+        margin: 8px 0;
+        line-height: 1.5;
+      }
+      .email-footer {
+        padding: 16px 24px;
+        background-color: #f8f9fa;
+        text-align: center;
+        font-size: 13px;
+        color: #666666;
+        border-top: 1px solid #eeeeee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="email-header">
+        Yêu Cầu Hỗ Trợ Đã Được Xử Lý
+      </div>
+      <div class="email-body">
+        <p>Xin chào,</p>
+        <p>Yêu cầu hỗ trợ của bạn đã được giải quyết thành công với thông tin chi tiết như sau:</p>
+        
+        <div class="ticket-box">
+          <p><strong>Tiêu đề:</strong> @Model.Title</p>
+          <p><strong>Phương án xử lý:</strong> @Model.ResolutionNote</p>
+        </div>
+
+        <p>Nếu bạn cần hỗ trợ thêm, vui lòng phản hồi lại thông báo này.</p>
+      </div>
+      <div class="email-footer">
+        Trân trọng cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!
+      </div>
+    </div>
+  </body>
+</html>
