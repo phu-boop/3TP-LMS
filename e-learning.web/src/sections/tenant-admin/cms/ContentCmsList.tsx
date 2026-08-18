@@ -739,7 +739,7 @@ function CmsContentPreviewModal({ item, onClose }: PreviewModalProps) {
       PaperProps={{ sx: { height: '85vh', maxHeight: 900 } }}
     >
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.neutral' }}>
-        <Typography variant="h6">{item.title}</Typography>
+        <Typography variant="h6" component="span">{item.title}</Typography>
         <IconButton onClick={onClose}>
           <Iconify icon="eva:close-fill" />
         </IconButton>

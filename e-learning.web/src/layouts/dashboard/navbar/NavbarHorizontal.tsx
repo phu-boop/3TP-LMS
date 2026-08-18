@@ -41,7 +41,8 @@ function NavbarHorizontal() {
   const host = window.location.hostname;
   const { pathname } = useRouter();
   const { workspaces } = useSelector((state) => state.auth);
-  const { branding } = useSelector((state) => state.tenantBranding);
+  const { resolve } = useSelector((state) => state.tenantBranding);
+  const branding = resolve?.branding;
 
   const isTenantAdminPortal = pathname.startsWith('/tenant-admin');
   const isClientPortal = pathname.startsWith('/client');

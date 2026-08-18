@@ -54,3 +54,22 @@ export type SelectWorkspaceResponse = {
   tokenType: string;
   tenantBranding?: TenantBranding;
 };
+
+// GET /api/tenants/resolve
+export type ResolveTenantResponse = {
+  tenantId: string;
+  tenantCode: string;
+  name: string;
+  subdomain: string;
+  domain: string;
+  status: string;
+  isAdminDomain: boolean;
+  branding: {
+    logoUrl?: string;
+    avatarUrl?: string;
+    watermarkSettings?: string;
+    color?: string;
+    primaryColor?: string;
+  };
+};
+

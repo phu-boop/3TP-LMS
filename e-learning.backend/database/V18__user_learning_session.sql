@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS user_learning_session (
     inactivity_ms       BIGINT        NOT NULL DEFAULT 0,  -- Tổng thời gian inactivity (ms)
     device_info         JSONB,                            -- UA, platform, etc.
     ip_address          INET,
+    is_active           BOOLEAN       NOT NULL DEFAULT TRUE,
     is_deleted          BOOLEAN       NOT NULL DEFAULT FALSE,
     created_at          TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
     created_by          UUID          REFERENCES user_account(id) ON DELETE SET NULL,
@@ -23,6 +24,8 @@ CREATE TABLE IF NOT EXISTS user_learning_session (
 -- Unique constraint cho ON CONFLICT trong StartSessionAsync
 CREATE UNIQUE INDEX IF NOT EXISTS uq_uls_learning_session_id
     ON user_learning_session (learning_session_id);
+
+ALTER TABLE user_learning_session ADD COLUMN IF NOT EXISTS is_active BOOLEAN NOT NULL DEFAULT TRUE;
 
 CREATE INDEX IF NOT EXISTS idx_uls_user_tenant
     ON user_learning_session (tenant_id, user_id, is_active)
@@ -48,11 +51,6 @@ CREATE INDEX IF NOT EXISTS idx_uls_school
     ON user_learning_session (school_id)
     WHERE is_deleted = FALSE;
 
--- Grant privileges on user_learning_session table and v_user_learning_time view to the app user.
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE user_learning_session TO lms_dev;
-GRANT SELECT ON TABLE v_user_learning_time TO lms_dev;
-
 -- View tổng hợp thời gian học
 CREATE OR REPLACE VIEW v_user_learning_time AS
 SELECT
@@ -68,3 +66,7 @@ SELECT
 FROM user_learning_session
 WHERE is_deleted = FALSE
 GROUP BY tenant_id, user_id, school_id, content_item_id;
+
+-- Grant privileges on user_learning_session table and v_user_learning_time view to the app user.
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE user_learning_session TO lms_dev;
+-- GRANT SELECT ON TABLE v_user_learning_time TO lms_dev;

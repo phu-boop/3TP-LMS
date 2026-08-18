@@ -69,7 +69,8 @@ export default function ClientLayout({ children }: Props) {
   const { user } = useAuth();
   const { themeLayout } = useSettings();
   const [open, setOpen] = useState(false);
-  const { branding } = useSelector((state) => state.tenantBranding);
+  const { resolve } = useSelector((state) => state.tenantBranding);
+  const branding = resolve?.branding;
 
   const isNavHorizontal = themeLayout === 'horizontal';
   const tenantBrandColor = normalizeTenantBrandColor(branding?.color);

@@ -75,7 +75,8 @@ const LogoTenant = forwardRef<any, Props>(
     const { isCollapse } = useCollapseDrawer();
     const { user } = useAuth();
     const { workspaces } = useSelector((state) => state.auth);
-    const { branding } = useSelector((state) => state.tenantBranding);
+    const { resolve } = useSelector((state) => state.tenantBranding);
+    const branding = resolve?.branding;
 
     const hostname = typeof window !== 'undefined' ? window.location.hostname : '';
 

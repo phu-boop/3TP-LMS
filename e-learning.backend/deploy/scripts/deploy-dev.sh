@@ -79,7 +79,7 @@ SQL
 
         # Kiểm tra đã apply chưa
         already_applied=$(db_exec -tAq \
-            -c "SELECT COUNT(1) FROM schema_migrations WHERE filename = '$filename'")
+            -c "SELECT COUNT(1) FROM schema_migrations WHERE filename = '$filename'" </dev/null)
 
         if [ "$already_applied" = "1" ]; then
             echo "  Skipped (already applied): $filename"
@@ -87,7 +87,7 @@ SQL
             echo "  Applying: $filename"
             if db_exec -q < "$sql_file"; then
                 db_exec -q \
-                    -c "INSERT INTO schema_migrations (filename) VALUES ('$filename')"
+                    -c "INSERT INTO schema_migrations (filename) VALUES ('$filename')" </dev/null
                 echo "  Done: $filename"
             else
                 echo "  ERROR: Failed to apply $filename. Aborting migrations."

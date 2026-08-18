@@ -177,7 +177,7 @@ VALUES
     TRUE,
     'ACTIVE'
   )
-ON CONFLICT (tenant_id, school_id) DO NOTHING;
+ON CONFLICT (tenant_id, school_id) WHERE is_deleted = FALSE DO NOTHING;
 
 -- ============================================================
 -- 8. USER-TENANT-ROLE ASSIGNMENTS
