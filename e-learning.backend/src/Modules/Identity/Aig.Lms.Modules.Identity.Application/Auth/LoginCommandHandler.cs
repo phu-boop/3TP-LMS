@@ -274,12 +274,12 @@ public sealed class LoginCommandHandler
             return domainResolution.Tenant.TenantId;
         }
 
-        if (isSchoolUser)
-            return null;
-
         var isSuperAdmin = roles.Any(role => string.Equals(role, "LMS_ADMIN", StringComparison.OrdinalIgnoreCase));
         if (!isSuperAdmin && distinctTenantIds.Length == 1)
             return distinctTenantIds[0];
+
+        if (isSchoolUser)
+            return null;
 
         return await _userRepository.GetTenantIdAsync(userId, ct);
     }
